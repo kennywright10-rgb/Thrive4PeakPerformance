@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs & Blog | Thrive4PeakPerformance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: #f8f9fa;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: #0066cc;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .faq-item {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 1.1rem;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding-top: 0;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-category {
+            color: #0066cc;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            color: #1a1a2e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #0a0a14;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .tab-nav {
+                flex-direction: column;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://static.wixstatic.com/media/eb4cc4_072f0ea79f9f47648ad778e65eb7c21f~mv2.png" alt="Thrive Logo">
+            </div>
+            <a href="tel:470-359-6195" class="btn-primary">📞 (470) 359-6195</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>FAQs & Wellness Blog</h1>
+        <p>Your questions answered and the latest in performance optimization</p>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="showTab('faqs')">Frequently Asked Questions</button>
+                <button class="tab-btn" onclick="showTab('blog')">Wellness Blog</button>
+            </div>
+
+            <!-- FAQs Tab -->
+            <div id="faqs" class="tab-content active">
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        What should I expect during my first visit?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your first visit begins with a comprehensive consultation with one of our board-certified physicians. We'll review your health history, discuss your wellness goals, and perform any necessary assessments. Based on this information, we'll create a personalized treatment plan tailored to your specific needs. The entire process typically takes 45-60 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Are your therapies safe?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. All our therapies are overseen by board-certified physicians and performed using medical-grade equipment. We follow strict safety protocols and only offer treatments backed by scientific research. Every client undergoes a medical screening before starting any therapy to ensure it's appropriate for their health profile.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        How often should I receive treatments?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Treatment frequency varies based on your goals and the specific therapy. For example, IV drips may be recommended weekly or monthly, while cryotherapy might be beneficial 2-3 times per week for athletic recovery. During your consultation, we'll create a customized schedule that aligns with your objectives and lifestyle.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Do you accept insurance?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most of our wellness therapies are considered elective and are not typically covered by insurance. However, we offer competitive pricing, package deals, and membership options to make our services more accessible. We can provide detailed receipts that you can submit to your HSA/FSA or insurance company for potential reimbursement.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Can I combine multiple therapies?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Many of our clients benefit from combining therapies for enhanced results. For example, pairing cryotherapy with red light therapy can optimize recovery, or combining IV nutrition with compression therapy can maximize athletic performance. Our physicians will recommend the best combinations for your specific goals.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Who can benefit from your services?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our therapies benefit a wide range of individuals, including athletes seeking performance optimization, busy professionals managing stress and fatigue, individuals recovering from injuries, people focused on anti-aging and longevity, and anyone looking to elevate their overall wellness. We customize our approach for each client regardless of their starting point.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        How long do sessions typically last?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Session lengths vary by therapy: Cryotherapy is 2-3 minutes, IV Drips are 30-60 minutes, Compression Therapy is 20-30 minutes, Red Light Therapy is 10-20 minutes, Hyperbaric Chamber sessions are 60 minutes, and HOCATT sessions are 30 minutes. We'll work with your schedule to find appointment times that fit your lifestyle.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        What makes Thrive different from other wellness centers?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Unlike typical wellness centers, every therapy at Thrive is physician-led and overseen by board-certified doctors. We use only medical-grade equipment, source our nutrients from award-winning compounding pharmacies, and base all recommendations on rigorous scientific research. Our comprehensive approach and commitment to personalized care set us apart.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="toggleFAQ(this)">
+                    <div class="faq-question">
+                        Do you offer package pricing or memberships?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer various package options and membership levels that provide significant savings for clients who plan to use our services regularly. Memberships include discounted rates, priority booking, and exclusive access to special promotions. Contact us to learn more about our current package and membership offerings.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Tab -->
+            <div id="blog" class="tab-content">
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Performance</div>
+                            <h3 class="blog-title">The Science Behind Cryotherapy for Athletic Recovery</h3>
+                            <p class="blog-excerpt">Discover how exposure to extreme cold can reduce inflammation, accelerate recovery, and give athletes a competitive edge.</p>
+                            <p class="blog-meta">December 10, 2024 • 5 min read</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Nutrition</div>
+                            <h3 class="blog-title">IV Therapy vs. Oral Supplements: Understanding Bioavailability</h3>
+                            <p class="blog-excerpt">Why direct nutrient delivery through IV therapy provides superior absorption compared to traditional supplements.</p>
+                            <p class="blog-meta">December 8, 2024 • 7 min read</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Wellness</div>
+                            <h3 class="blog-title">Red Light Therapy: More Than Just Skin Deep</h3>
+                            <p class="blog-excerpt">Exploring the cellular benefits of photobiomodulation for inflammation, pain relief, and overall health.</p>
+                            <p class="blog-meta">December 5, 2024 • 6 min read</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Weight Loss</div>
+                            <h3 class="blog-title">Understanding GLP-1: The Future of Medical Weight Management</h3>
+                            <p class="blog-excerpt">How GLP-1 receptor agonists are revolutionizing weight loss with sustainable, physician-supervised results.</p>
+                            <p class="blog-meta">December 3, 2024 • 8 min read</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Recovery</div>
+                            <h3 class="blog-title">Hyperbaric Oxygen Therapy: Breathing New Life Into Healing</h3>
+                            <p class="blog-excerpt">The remarkable benefits of increased oxygen delivery for injury recovery, cognitive function, and longevity.</p>
+                            <p class="blog-meta">December 1, 2024 • 6 min read</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image"></div>
+                        <div class="blog-content">
+                            <div class="blog-category">Anti-Aging</div>
+                            <h3 class="blog-title">NAD+ and Cellular Health: The Anti-Aging Molecule</h3>
+                            <p class="blog-excerpt">Why NAD+ supplementation is becoming a cornerstone of longevity medicine and how it supports cellular function.</p>
+                            <p class="blog-meta">November 28, 2024 • 9 min read</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Thrive4PeakPerformance. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const btns = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            btns.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleFAQ(element) {
+            const answer = element.querySelector('.faq-answer');
+            const icon = element.querySelector('.faq-question span');
+            
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>

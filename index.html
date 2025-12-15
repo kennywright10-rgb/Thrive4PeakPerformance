@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrive4PeakPerformance | Maximize Your Performance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0066cc;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #0066cc;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #0066cc;
+            color: #fff;
+        }
+
+        .phone-btn {
+            background: #28a745;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .phone-btn:hover {
+            background: #218838;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        .team-member p {
+            color: #666;
+        }
+
+        /* How It Works */
+        .steps {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step-item {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem;
+            background: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-item p {
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+            padding: 3rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #0066cc;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Email Signup */
+        .email-signup {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+        }
+
+        .email-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .email-form button {
+            background: #0066cc;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .email-form button:hover {
+            background: #0052a3;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a14;
+            color: #fff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #0066cc;
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #0066cc;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+        }
+
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-card h3 {
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .service-detail {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .service-detail h3 {
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .phone-btn {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="#" onclick="showPage('home')">
+                    <img src="https://static.wixstatic.com/media/eb4cc4_072f0ea79f9f47648ad778e65eb7c21f~mv2.png" alt="Thrive Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('services')">Services</a></li>
+                <li><a href="#" onclick="showPage('about')">About</a></li>
+                <li><a href="#" onclick="showPage('team')">Team</a></li>
+                <li><a href="#" onclick="showPage('faqs')">FAQs</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="tel:470-359-6195" class="phone-btn">📞 (470) 359-6195</a>
+                <a href="#" onclick="showPage('book')" class="btn-primary">Book Online</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Maximize Your Performance</h1>
+                <p>Advanced wellness therapies designed for peak performance, optimal recovery, and enhanced vitality. Experience the future of integrative health.</p>
+                <a href="#" onclick="showPage('services')" class="btn-primary" style="display: inline-block; margin-top: 1rem;">Explore Services</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Performance Services</h2>
+                <p class="section-subtitle">Maximize Performance: Therapies Designed By Science, Tailored For You</p>
+                
+                <div class="services-grid">
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_e9cb614508804fa3ba9620753380bda8~mv2.png" alt="IV Drip Nutrition" class="service-image">
+                        <div class="service-content">
+                            <h3>IV Drip Nutrition</h3>
+                            <p>Replenish vital nutrients and maximize performance with customized IV therapy.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_4d7e3836ddb34e79b334cb656a26a092~mv2.png" alt="HOCATT Full Body Detox" class="service-image">
+                        <div class="service-content">
+                            <h3>HOCATT Full Body Detox</h3>
+                            <p>Experience comprehensive detoxification and cellular rejuvenation.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_f115607f141944c5a1a970c148ce09be~mv2.png" alt="Cryo Therapy" class="service-image">
+                        <div class="service-content">
+                            <h3>Cryo Therapy</h3>
+                            <p>Boost recovery, reduce inflammation, and enhance athletic performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_83b23af4f46a485e85fff0226bea48a1~mv2.png" alt="Hyperbaric Chamber" class="service-image">
+                        <div class="service-content">
+                            <h3>Hyperbaric Chamber</h3>
+                            <p>Accelerate healing and optimize cellular oxygen delivery.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_bf3c4ac1a4394b6caffced67d4040ab4~mv2.jpg" alt="Red Light Therapy" class="service-image">
+                        <div class="service-content">
+                            <h3>Red Light Therapy</h3>
+                            <p>Enhance skin health, reduce pain, and improve recovery.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_56dd3f31af8b48b1995d847ff1f7ab42~mv2.jpg" alt="Compression Boots" class="service-image">
+                        <div class="service-content">
+                            <h3>Compression Boots</h3>
+                            <p>Improve circulation and accelerate muscle recovery.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_b7c5e5c79a334475b8ead2b9527fea30~mv2.jpg" alt="Aesthetics and Peptides" class="service-image">
+                        <div class="service-content">
+                            <h3>Aesthetics & Peptides</h3>
+                            <p>Advanced treatments for optimal appearance and performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="showPage('services')">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_5145f35089f44483867b047ca8b5d73c~mv2.jpg" alt="Weight Loss (GLP-1)" class="service-image">
+                        <div class="service-content">
+                            <h3>Weight Loss (GLP-1)</h3>
+                            <p>Medically supervised weight management with GLP-1 therapy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section 1 -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Maximize Your Performance?</h2>
+                <p>Start your journey to peak wellness today with our advanced therapies</p>
+                <div class="cta-buttons">
+                    <a href="#" onclick="showPage('book')" class="btn-primary">Book Your Appointment</a>
+                    <a href="tel:470-359-6195" class="phone-btn">📞 Call (470) 359-6195</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="about" class="section features">
+            <div class="container">
+                <h2 class="section-title">Why Choose Thrive</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <img src="https://static.wixstatic.com/media/eb4cc4_36b1a687a8064a988c1cc2eea0dea591~mv2.png" alt="Physician-Led" style="width: 60px; height: 60px;">
+                        </div>
+                        <h3>Physician-Led Care</h3>
+                        <p>Led by Medical Experts, we transition healthcare from reactive to proactive. Our personalized approach is built on scientific research and proven clinical practice.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <img src="https://static.wixstatic.com/media/eb4cc4_2068b5d7a0c5479bacff212f70cc9f1e~mv2.png" alt="Quality" style="width: 60px; height: 60px;">
+                        </div>
+                        <h3>Highest Quality Ingredients</h3>
+                        <p>All IV Drips, IM Shots, and peptide nutrients are supplied through strategic partnerships with the industry's most awarded compounding pharmacies, guaranteeing trusted quality and safety.</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <img src="https://static.wixstatic.com/media/eb4cc4_4c0fafc5717e48bd86fdc79222115ed2~mv2.png" alt="Equipment" style="width: 60px; height: 60px;">
+                        </div>
+                        <h3>Medical Grade Equipment</h3>
+                        <p>Every piece of equipment is meticulously selected and maintained under strict clinical protocol. We utilize proven, Medical Grade devices to ensure the accuracy, efficacy, and safety of every therapeutic application we offer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section 2 -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Experience Board-Certified Care</h2>
+                <p>Our expert medical team is ready to create your personalized wellness plan</p>
+                <div class="cta-buttons">
+                    <a href="#" onclick="showPage('book')" class="btn-primary">Schedule Consultation</a>
+                    <a href="#" onclick="showPage('services')" class="btn-secondary" style="background: #fff; color: #0066cc;">View All Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section">
+            <div class="container">
+                <h2 class="section-title">Our Board-Certified Medical Team</h2>
+                <p class="section-subtitle">Rigorously researched, our protocols deliver safe, effective results grounded in cutting-edge science</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_74fa40e5d7e6479d9c31ce99bdee8463~mv2.jpg" alt="Doctor 1" class="team-image">
+                        <h3>Ashley Jones</h3>
+                        <p>Doctor 1</p>
+                        <p>She's a badass.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_74fa40e5d7e6479d9c31ce99bdee8463~mv2.jpg" alt="Doctor 2" class="team-image">
+                        <h3>Don Francis</h3>
+                        <p>Doctor 2</p>
+                        <p>He's a badass.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="https://static.wixstatic.com/media/eb4cc4_74fa40e5d7e6479d9c31ce99bdee8463~mv2.jpg" alt="Nurse 1" class="team-image">
+                        <h3>Alexa Young</h3>
+                        <p>Nurse 1</p>
+                        <p>She's a badass too.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section steps">
+            <div class="container">
+                <h2 class="section-title" style="color: #fff;">How It Works</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>Book an Appointment</h3>
+                        <p>Call us or book online to schedule your visit.</p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>Visit Your Studio</h3>
+                        <p>Come in and experience our state-of-the-art facility.</p>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>Thrive</h3>
+                        <p>Feel the difference and achieve peak performance.</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" onclick="showPage('services')" class="btn-primary" style="display: inline-block;">Explore Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                
+                <div class="testimonial-slider">
+                    <p class="testimonial-text">"Testimonials provide a sense of what it's like to work with you or use your products. Change the text and add your own."</p>
+                    <p class="testimonial-author">— Alexa Young, CA</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Email Signup Section -->
+        <section class="email-signup">
+            <div class="container">
+                <h2 class="section-title" style="color: #fff;">Stay Connected With Thrive</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Subscribe to receive exclusive wellness tips, special offers, and the latest updates on performance optimization</p>
+                
+                <form class="email-form" onsubmit="handleEmailSignup(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services-page" class="page-content">
+        <section class="hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive wellness therapies tailored to your performance goals</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="service-detail">
+                    <h2>IV Drip Nutrition</h2>
+                    <p>Direct nutrient delivery for maximum absorption and immediate results. Our customized IV formulations replenish vital nutrients, hydrate at the cellular level, and optimize your body's performance.</p>
+                    <div class="content-grid">
+                        <div

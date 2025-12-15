@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | Thrive4PeakPerformance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .booking-form {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .booking-form h2 {
+            color: #0066cc;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: #0066cc;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #0052a3;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h2 {
+            color: #0066cc;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item h3 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item p, .info-item a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            color: #0066cc;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .hours-grid div {
+            padding: 0.5rem 0;
+        }
+
+        .hours-grid .day {
+            font-weight: 600;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background: #0a0a14;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .quick-contact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .quick-contact-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .quick-contact-card .icon {
+            width: 60px;
+            height: 60px;
+            background: #0066cc;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+
+        .quick-contact-card h3 {
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-contact-card a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://static.wixstatic.com/media/eb4cc4_072f0ea79f9f47648ad778e65eb7c21f~mv2.png" alt="Thrive Logo">
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Book Your Appointment</h1>
+        <p>Start your journey to peak performance today</p>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="quick-contact">
+                <div class="quick-contact-card">
+                    <div class="icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:470-359-6195">(470) 359-6195</a></p>
+                    <p style="margin-top: 0.5rem; color: #666; font-size: 0.9rem;">Mon-Fri: 9AM - 7PM<br>Sat: 10AM - 4PM</p>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:info@thrive4peakperformance.com">info@thrive4peakperformance.com</a></p>
+                    <p style="margin-top: 0.5rem; color: #666; font-size: 0.9rem;">Response within 24 hours</p>
+                </div>
+
+                <div class="quick-contact-card">
+                    <div class="icon">📍</div>
+                    <h3>Visit Us</h3>
+                    <p>Cumming, Georgia</p>
+                    <p style="margin-top: 0.5rem; color: #666; font-size: 0.9rem;">Convenient location with parking</p>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="booking-form">
+                    <h2>Request an Appointment</h2>
+                    <form onsubmit="handleBooking(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Preferred Service *</label>
+                            <select id="service" required>
+                                <option value="">Select a service</option>
+                                <option value="iv-drip">IV Drip Nutrition</option>
+                                <option value="hocatt">HOCATT Full Body Detox</option>
+                                <option value="cryo">Cryotherapy</option>
+                                <option value="hyperbaric">Hyperbaric Chamber</option>
+                                <option value="red-light">Red Light Therapy</option>
+                                <option value="compression">Compression Boots</option>
+                                <option value="aesthetics">Aesthetics & Peptides</option>
+                                <option value="weight-loss">Weight Loss (GLP-1)</option>
+                                <option value="consultation">General Consultation</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <select id="time">
+                                <option value="">Select a time</option>
+                                <option value="morning">Morning (9AM - 12PM)</option>
+                                <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                                <option value="evening">Evening (4PM - 7PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Additional Notes</label>
+                            <textarea id="message" placeholder="Tell us about your wellness goals or any specific concerns..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Request Appointment</button>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">We'll contact you within 24 hours to confirm your appointment</p>
+                    </form>
+                </div>
+
+                <div>
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        
+                        <div class="info-item">
+                            <h3>📞 Phone</h3>
+                            <p><a href="tel:470-359-6195">(470) 359-6195</a></p>
+                            <p style="margin-top: 0.5rem;">Call or text for immediate assistance</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>✉️ Email</h3>
+                            <p><a href="mailto:info@thrive4peakperformance.com">info@thrive4peakperformance.com</a></p>
+                            <p style="margin-top: 0.5rem;">For non-urgent inquiries and questions</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>📍 Location</h3>
+                            <p>Cumming, Georgia</p>
+                            <p style="margin-top: 0.5rem;">Convenient location with ample parking</p>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>🕐 Hours of Operation</h3>
+                            <div class="hours-grid">
+                                <div class="day">Monday - Friday:</div>
+                                <div>9:00 AM - 7:00 PM</div>
+                                <div class="day">Saturday:</div>
+                                <div>10:00 AM - 4:00 PM</div>
+                                <div class="day">Sunday:</div>
+                                <div>Closed</div>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <h3>🚗 Parking</h3>
+                            <p>Free parking available on-site. Handicap accessible entrance.</p>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <p style="color: #666;">Map Location - Cumming, Georgia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Thrive4PeakPerformance. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleBooking(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+            
+            alert(`Thank you, ${name}! Your appointment request for ${service} has been received. We'll contact you within 24 hours to confirm your appointment.`);
+            
+            event.target.reset();
+        }
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+    </script>
+</body>
+</html>
